@@ -1,6 +1,5 @@
 ﻿using CourseManager.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace CourseManager.Services
 {

@@ -1,7 +1,16 @@
+using CourseManager.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    var conectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseSqlServer(conectionString);
+});
 
 var app = builder.Build();
 
