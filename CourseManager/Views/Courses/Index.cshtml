@@ -1,0 +1,48 @@
+﻿@model List<Course>
+@{
+}
+<h2 class="text-center mb-5">List of Course</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Courses" asp-action="Create">New Course</a>
+
+    </div>
+    <div class="col">
+    </div>
+
+</div>
+<div class="row mb-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Module Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+
+                    <td>@course.Id</td>
+                    <td>@course.Name</td>
+                    <td>@course.ModuleName</td>
+                    <td>@course.Description</td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm" asp-controller="Courses" asp-action="Edit"
+                           asp-route-id="@course.Id">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Courses" asp-action="Delete"
+                           asp-route-id="@course.Id" onclick="return confirm('Are you sure you want to delete')">Delete</a>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
